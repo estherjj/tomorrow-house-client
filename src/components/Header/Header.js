@@ -3,11 +3,9 @@ import styles from './Header.module.scss';
 
 function Header(){
   return (
-    <div className={styles.father}>
-      <div className={styles.child}>Hello</div>
-      <div className={styles.child}>Hello</div>
-      <div className={styles.child}>Hello</div>
-    </div>
+    <header>
+      헤더영역
+    </header>
   )
 };
 

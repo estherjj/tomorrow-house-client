@@ -3,7 +3,7 @@ import styles from './Home.module.scss';
 
 function HomePresenter(){
   return (
-    <div className={styles.container}>
+    <div>
       Home
     </div>
   )

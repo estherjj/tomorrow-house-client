@@ -1,11 +1,1 @@
 @import "../../main.scss";
-
-.father {
-  height: 100vh;
-  @include flex-column;
-}
-
-.child {
-  width: 300px;
-  background-color: blue;
-}
