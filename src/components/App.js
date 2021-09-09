@@ -12,7 +12,6 @@ import Detail from '../routes/Detail';
 
 function App() {
   return (
-    <div className="App">
      <BrowserRouter>
       <Header />
       <Switch>
@@ -24,7 +23,6 @@ function App() {
         <Route path={routes.detail()} component={Detail} />
         </Switch>
      </BrowserRouter>
-    </div>
   );
 }
 

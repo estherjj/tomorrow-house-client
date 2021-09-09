@@ -3,9 +3,9 @@ import CartPresenter from './CartPresenter';
 
 function CartContainer(){
   return(
-    <>
+    <section>
       <CartPresenter />
-    </>
+    </section>
   )
 }
 
