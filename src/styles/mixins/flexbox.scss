@@ -10,3 +10,9 @@
   justify-content: $jc;
   align-items: $ai;
 }
+
+@mixin flex-inline($jc: center, $ai: center) {
+  display: inline-flex;
+  justify-content: $jc;
+  align-items: $ai;
+}
