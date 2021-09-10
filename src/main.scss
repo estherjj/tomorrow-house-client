@@ -2,6 +2,8 @@
 @import "./styles/constants/typography.scss";
 @import "./styles/constants/breakpoint.scss";
 
+@import "./styles/base/reset.scss";
+
 @import "./styles/mixins/responsive.scss";
 @import "./styles/mixins/positions.scss";
 @import "./styles/mixins/text-style.scss";
@@ -9,4 +11,7 @@
 
 @import "./styles/layouts/layout.scss";
 
-@import "./styles/base/reset.scss";
+@import "./styles/modules/tag.scss";
+@import "./styles/modules/profile.scss";
+@import "./styles/modules/button.scss";
+@import "./styles/modules/price.scss";
