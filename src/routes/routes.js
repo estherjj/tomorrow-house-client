@@ -18,7 +18,6 @@ const routes = {
       return DATAIL;
     }
   }
-  // detail: DATAIL
 }
 
 export default routes;

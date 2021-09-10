@@ -3,9 +3,9 @@ import JoinPresenter from './JoinPresenter';
 
 function JoinContainer(){
   return(
-    <>
+    <section>
       <JoinPresenter />
-    </>
+    </section>
   )
 }
 
