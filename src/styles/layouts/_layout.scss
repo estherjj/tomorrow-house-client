@@ -29,10 +29,11 @@ $lg-max-container: ($lg-unit + $gutter) * $lg-columns;
     .col_sm_#{$i} {
       padding: 0 $gutter/2;
       width: percentage($i / $sm-columns);
+      background-color: red;
     }
   }
 
-  @include responsive(T) {
+  @media screen and (min-width: $md-breakpoint) {
     max-width: $md-max-container;
     padding: 0 $md-margin;
 
@@ -40,11 +41,12 @@ $lg-max-container: ($lg-unit + $gutter) * $lg-columns;
       .col_md_#{$i} {
         padding: 0 $gutter/2;
         width: percentage($i / $md-columns);
+        background-color: gray;
       }
     }
   }
 
-  @include responsive(D) {
+  @media screen and (min-width: $lg-breakpoint) {
     max-width: $lg-max-container;
     padding: 0;
 
@@ -52,6 +54,7 @@ $lg-max-container: ($lg-unit + $gutter) * $lg-columns;
       .col_lg_#{$i} {
         padding: 0 $gutter/2;
         width: ($lg-unit + $gutter) * $i;
+        background-color: blue;
       }
     }
   }
