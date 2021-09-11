@@ -1,1 +1,70 @@
 @import "../../main.scss";
+
+header {
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px soild $border;
+  background-color: yellow;
+
+  .gnb {
+    @include flex(flex-start);
+  }
+}
+
+.header_left {
+  @include flex(flex-start);
+  .logo {
+    a {
+      display: block;
+      width: 70px;
+      height: 20px;
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+  .menuBtn {
+  }
+}
+
+.header_right {
+  display: flex;
+}
+
+.search_group {
+  position: relative;
+
+  .search_icon {
+    @include pos-center-y;
+    left: 10px;
+  }
+
+  .search_input {
+    padding-left: 40px;
+    width: 220px;
+    height: 40px;
+    border: 1px solid $tertiary;
+    border-radius: 4px;
+
+    &::placeholder {
+      @include text-style(16, $tertiary);
+    }
+
+    &:hover {
+      background-color: $background;
+    }
+  }
+}
+
+.profile {
+  width: 32px;
+  height: 32px;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
