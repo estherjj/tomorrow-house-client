@@ -29,7 +29,6 @@ $lg-max-container: ($lg-unit + $gutter) * $lg-columns;
     .col_sm_#{$i} {
       padding: 0 $gutter/2;
       width: percentage($i / $sm-columns);
-      background-color: red;
     }
   }
 
@@ -41,7 +40,6 @@ $lg-max-container: ($lg-unit + $gutter) * $lg-columns;
       .col_md_#{$i} {
         padding: 0 $gutter/2;
         width: percentage($i / $md-columns);
-        background-color: gray;
       }
     }
   }
@@ -54,7 +52,6 @@ $lg-max-container: ($lg-unit + $gutter) * $lg-columns;
       .col_lg_#{$i} {
         padding: 0 $gutter/2;
         width: ($lg-unit + $gutter) * $i;
-        background-color: blue;
       }
     }
   }
