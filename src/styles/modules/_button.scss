@@ -1,5 +1,5 @@
 %btn-base {
-  @include flex-inline;
+  @include inline_flexbox;
   padding: 0 8px;
   font-weight: 700;
   border-radius: 4px;

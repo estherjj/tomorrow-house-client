@@ -1,5 +1,5 @@
 %price-base {
-  @include flex-inline(start);
+  @include inline_flexbox(start);
 
   .amount {
     font-family: $font-price;
