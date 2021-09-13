@@ -3,9 +3,9 @@ import CategoryPresenter from './CategoryPresenter';
 
 function CategoryContainer(){
   return(
-    <>
+    <section>
       <CategoryPresenter />
-    </>
+    </section>
   )
 }
 
