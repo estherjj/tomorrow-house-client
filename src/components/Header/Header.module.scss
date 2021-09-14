@@ -17,7 +17,8 @@
 header {
   position: fixed;
   width: 100%;
-  border-bottom: 1px soild $border;
+  border-bottom: 1px solid $border;
+  background-color: #fff;
 
   .gnb {
     @include flex(space-between);
@@ -68,6 +69,10 @@ header {
         }
       }
 
+      .searchBtn {
+        margin-right: 5px;
+      }
+
       .profile {
         width: 32px;
         height: 32px;
@@ -79,5 +84,64 @@ header {
         }
       }
     }
+  }
+}
+
+@include responsive(T) {
+  body {
+    background: cadetblue;
+  }
+
+  &.gnb_icon_group {
+    @include flex;
+
+    .search_group {
+      margin-right: 24px;
+    }
+    .cartBtn {
+      margin-right: 5px;
+
+      &:hover {
+        border-radius: 50%;
+        background-color: $blue;
+      }
+    }
+    .gnb_list {
+      @include flex;
+      color: $primary;
+
+      .gbn_item_login {
+        position: relative;
+        margin-right: 15px;
+        transition: color 0.1s ease-in-out;
+
+        &::after {
+          @include pos-center-y;
+          right: -8px;
+          display: block;
+          content: "";
+          width: 1px;
+          height: 16px;
+          background-color: black;
+        }
+        &:hover {
+          color: $blue;
+        }
+      }
+
+      .gbn_item_join {
+        transition: color 0.1s ease-in-out;
+
+        &:hover {
+          color: $blue;
+        }
+      }
+    }
+  }
+}
+
+@include responsive(D) {
+  body {
+    background-color: green;
   }
 }
