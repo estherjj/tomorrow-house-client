@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import styles from './Header.module.scss';
 
@@ -10,7 +10,8 @@ import { ReactComponent as BellIcon } from '../../assets/Icon/Bell.svg';
 
 function Header(props){
   const [cartBtnColor, setCartBtnColor] = useState("#3f4150");
-  const [menuBtnClick, setMenuBtnClick] = useState(true);
+  const [menuBtnClick, setMenuBtnClick] = useState(false);
+  const modalSection = useRef();
 
   return (
     <>
@@ -23,7 +24,9 @@ function Header(props){
                 <Link to="/"><img src="./images/logo.svg" alt="내일의 집"/></Link>
               </h1>
 
-              <button type="button" className={`${styles.menuBtn} ${styles.icon} ${styles.sm_only}`}>
+              <button type="button" className={`${styles.menuBtn} ${styles.icon} ${styles.sm_only}`} onClick={()=>{
+                setMenuBtnClick(true)
+              }}>
                 <MenuIcon fill="#3da5f5"/>
               </button>
 
@@ -71,13 +74,34 @@ function Header(props){
                   </button>
                 </nav> */}
 
-                </div>
               </div>
+            </div>
           </div>
         </div>
-
       </div>
     </header>
+
+    {
+      menuBtnClick === true
+      ? <section className={styles.section} ref={modalSection} onClick={(e)=>{
+        if(e.target === modalSection.current){
+          setMenuBtnClick(false)
+        }
+      }}>
+          <div className={styles.container}>
+            <div className={styles.row}>
+              <div className={styles.col_sm_3}>
+                <div className={`${styles.sm_only} ${styles.menu_modal}`}>
+                  모달 
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      : null
+    }
+
+
     </>
   )
 };
