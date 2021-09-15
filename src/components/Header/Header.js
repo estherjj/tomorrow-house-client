@@ -1,6 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState} from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import styles from './Header.module.scss';
+
+import DrawerMenu from '../DrawerMenu/DrawerMenu';
 
 import { ReactComponent as MenuIcon } from '../../assets/Icon/Menu.svg';
 import { ReactComponent as SearchIcon } from '../../assets/Icon/Search.svg';
@@ -8,10 +10,9 @@ import { ReactComponent as CartIcon } from '../../assets/Icon/Cart.svg';
 import { ReactComponent as BookmarkIcon } from '../../assets/Icon/Bookmark.svg';
 import { ReactComponent as BellIcon } from '../../assets/Icon/Bell.svg';
 
-function Header(props){
+function Header(){
   const [cartBtnColor, setCartBtnColor] = useState("#3f4150");
-  const [menuBtnClick, setMenuBtnClick] = useState(false);
-  const modalSection = useRef();
+  const [drawerShow, setDrawerShow] = useState(false);
 
   return (
     <>
@@ -25,7 +26,7 @@ function Header(props){
               </h1>
 
               <button type="button" className={`${styles.menuBtn} ${styles.icon} ${styles.sm_only}`} onClick={()=>{
-                setMenuBtnClick(true)
+                setDrawerShow(true)
               }}>
                 <MenuIcon fill="#3da5f5"/>
               </button>
@@ -82,24 +83,28 @@ function Header(props){
     </header>
 
     {
+      drawerShow === true
+      ? <DrawerMenu drawerShow={drawerShow} setDrawerShow={setDrawerShow}/>
+      : null
+    }
+
+{/* {
       menuBtnClick === true
-      ? <section className={styles.section} ref={modalSection} onClick={(e)=>{
-        if(e.target === modalSection.current){
+      ? <section className={styles.section} ref={drawer_section} onClick={(e)=>{
+        if(e.target === drawer_section.current){
           setMenuBtnClick(false)
         }
-      }}>
+        }}>
           <div className={styles.container}>
             <div className={styles.row}>
               <div className={styles.col_sm_3}>
-                <div className={`${styles.sm_only} ${styles.menu_modal}`}>
-                  모달 
-                </div>
+                <DrawerMenu menuBtnClick={menuBtnClick} setMenuBtnClick={setMenuBtnClick}/>
               </div>
             </div>
           </div>
         </section>
       : null
-    }
+    } */}
 
 
     </>

@@ -1,0 +1,106 @@
+@import "../../main.scss";
+
+.icon {
+  @include flex-inline;
+  width: 32px;
+  height: 32px;
+}
+
+// 메뉴버튼 클릭 시 모달창 UI
+.section {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(3, 3, 3, 0.5);
+
+  .drawer_menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 32px 20px;
+    width: 100%;
+    max-width: 250px;
+    height: 100vh;
+    background-color: $white;
+    z-index: 100;
+
+    .drawer_menu_header {
+      border-bottom: 1px solid $border;
+
+      .logo {
+        margin-bottom: 30px;
+        width: 70px;
+        height: 20px;
+        img {
+          display: block;
+          width: 100%;
+        }
+      }
+
+      .user_link {
+        @include flex(space-evenly);
+        margin-bottom: 30px;
+
+        .btn_login {
+          width: 98px;
+        }
+        .btn_join {
+          width: 98px;
+        }
+      }
+
+      .user {
+        @include flex(flex-start);
+        padding-left: 12px;
+        padding-bottom: 30px;
+        .user_profile {
+          margin-right: 8px;
+          width: 24px;
+          height: 24px;
+          img {
+            display: block;
+            width: 100%;
+          }
+        }
+        .user_name {
+          @include text-style(14, $primary);
+        }
+      }
+    }
+
+    .drawer_menu_category {
+      position: relative;
+      padding: 10px 8px;
+      border-bottom: 1px solid $border;
+
+      h2 {
+        @include text-style(18, $primary);
+        padding-left: 36px;
+        margin-bottom: 15px;
+      }
+      .storeIcon {
+        position: absolute;
+        top: 8px;
+        left: 2px;
+      }
+      .drawer_menu_category_list {
+        padding-left: 10px;
+
+        .drawer_menu_category_item {
+          @include text-style(14);
+          padding: 5px 0;
+          font-weight: 700;
+          transition: color 0.1s ease-in-out;
+          &:hover {
+            color: $blue;
+          }
+
+          a {
+            display: block;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
