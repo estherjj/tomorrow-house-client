@@ -15,6 +15,7 @@ function DrawerMenu(props){
         props.setDrawerShow(false)
       }
     }}>
+      <h2 className={styles.visually_hidden}>내일의 집</h2>
       <div className={styles.drawer_menu}>
         <div className={styles.drawer_menu_header}>
           <div className={styles.logo}>
