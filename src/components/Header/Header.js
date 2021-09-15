@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import styles from './Header.module.scss';
 
 import DrawerMenu from '../DrawerMenu/DrawerMenu';
+import SearchModal from '../SearchModal';
 
 import { ReactComponent as MenuIcon } from '../../assets/Icon/Menu.svg';
 import { ReactComponent as SearchIcon } from '../../assets/Icon/Search.svg';
@@ -13,6 +14,7 @@ import { ReactComponent as BellIcon } from '../../assets/Icon/Bell.svg';
 function Header(){
   const [cartBtnColor, setCartBtnColor] = useState("#3f4150");
   const [drawerShow, setDrawerShow] = useState(false);
+  const [searchModalShow, setSearchModalShow] = useState(false);
 
   return (
     <>
@@ -37,7 +39,9 @@ function Header(){
                   <input type="text" placeholder="내일의 집 통합검색" className={styles.search_input} />
                 </div>
 
-                <button type="button" className={`${styles.sm_only} ${styles.icon} ${styles.searchBtn}`} aria-label="검색 버튼" >
+                <button type="button" className={`${styles.sm_only} ${styles.icon} ${styles.searchBtn}`} aria-label="검색 버튼" onClick={()=>{
+                  setSearchModalShow(true);
+                }}>
                   <SearchIcon fill="#3f4150"/>
                 </button>
                 <Link to="/cart" className={` ${styles.sm_only} ${styles.icon} ${styles.cartBtn}`} aria-label="장바구니로 이동">
@@ -88,24 +92,11 @@ function Header(){
       : null
     }
 
-{/* {
-      menuBtnClick === true
-      ? <section className={styles.section} ref={drawer_section} onClick={(e)=>{
-        if(e.target === drawer_section.current){
-          setMenuBtnClick(false)
-        }
-        }}>
-          <div className={styles.container}>
-            <div className={styles.row}>
-              <div className={styles.col_sm_3}>
-                <DrawerMenu menuBtnClick={menuBtnClick} setMenuBtnClick={setMenuBtnClick}/>
-              </div>
-            </div>
-          </div>
-        </section>
+    {
+      searchModalShow === true
+      ? <SearchModal searchModalShow={searchModalShow} setSearchModalShow={setSearchModalShow}/>
       : null
-    } */}
-
+    }
 
     </>
   )

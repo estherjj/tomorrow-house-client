@@ -1,0 +1,57 @@
+@import "../../main.scss";
+
+.search_modal {
+  position: fixed;
+  padding: 12px 15px;
+  width: 100%;
+  height: 100vh;
+  background-color: $white;
+
+  .search_modal_header {
+    display: flex;
+    margin-bottom: 20px;
+
+    .search_group {
+      position: relative;
+      width: 100%;
+      .search_icon {
+        @include pos-center-y;
+        left: 10px;
+      }
+
+      .search_input {
+        padding-left: 40px;
+        width: 100%;
+        height: 40px;
+        border: 1px solid $tertiary;
+        border-radius: 4px;
+
+        &::placeholder {
+          @include text-style(16, $tertiary);
+        }
+
+        &:hover {
+          background-color: $background;
+        }
+      }
+    }
+
+    .closeBtn {
+      @include text-style(16, $primary);
+      margin-left: 15px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+  }
+
+  .search_modal_list {
+    .search_modal_list_title {
+      @include text-style(13, $secondary);
+      margin-bottom: 20px;
+    }
+    .search_modal_list_results {
+      @include text-style(16, $tertiary);
+      padding: 10px;
+    }
+  }
+}
