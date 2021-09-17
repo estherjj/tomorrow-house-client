@@ -1,13 +1,5 @@
 @import "../../main.scss";
 
-// a {
-//   display: flex;
-//   justify-content: space-between;
-//   justify-content: space-evenly;
-//   justify-content: flex-end;
-//   justify-content: flex-start;
-// }
-
 .icon {
   @include flex-inline;
   width: 32px;
@@ -17,70 +9,110 @@
 header {
   position: fixed;
   width: 100%;
-  border-bottom: 1px solid $border;
   background-color: #fff;
 
+  .header_top {
+    border-bottom: 1px solid $border;
+    .header_content {
+      @include flex(space-between);
+      height: 50px;
+
+      .logo {
+        order: 1;
+        a {
+          display: block;
+          width: 70px;
+          height: 20px;
+          img {
+            display: block;
+            width: 100%;
+          }
+        }
+      }
+
+      .menuBtn {
+        order: 0;
+      }
+
+      .header_content_icon_group {
+        order: 2;
+
+        .search_group {
+          position: relative;
+
+          .search_icon {
+            @include pos-center-y;
+            left: 10px;
+          }
+
+          .search_input {
+            padding-left: 40px;
+            width: 220px;
+            height: 40px;
+            border: 1px solid $tertiary;
+            border-radius: 4px;
+
+            &::placeholder {
+              @include text-style(16, $tertiary);
+            }
+
+            &:hover {
+              background-color: $background;
+            }
+          }
+        }
+
+        .searchBtn {
+          margin-right: 5px;
+        }
+
+        .profile {
+          width: 32px;
+          height: 32px;
+
+          img {
+            display: block;
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+
   .gnb {
-    @include flex(space-between);
-    height: 50px;
-
-    .logo {
-      order: 1;
-      a {
-        display: block;
-        width: 70px;
-        height: 20px;
-        img {
-          display: block;
-          width: 100%;
-        }
-      }
+    border-bottom: 1px solid $border;
+    nav {
+      @include flex;
     }
 
-    .menuBtn {
-      order: 0;
-    }
+    .gnb_list {
+      // @include pos-center-y;
+      @include flex(flex-start);
+      font-weight: 700;
 
-    .gnb_icon_group {
-      order: 2;
-
-      .search_group {
-        position: relative;
-
-        .search_icon {
-          @include pos-center-y;
-          left: 10px;
-        }
-
-        .search_input {
-          padding-left: 40px;
-          width: 220px;
-          height: 40px;
-          border: 1px solid $tertiary;
-          border-radius: 4px;
-
-          &::placeholder {
-            @include text-style(16, $tertiary);
-          }
-
-          &:hover {
-            background-color: $background;
-          }
-        }
+      white-space: nowrap;
+      overflow: hidden;
+      overflow-x: scroll;
+      &::-webkit-scrollbar {
+        height: 4px;
+      }
+      &::-webkit-scrollbar-track {
+        background-color: $white;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: #eee;
       }
 
-      .searchBtn {
-        margin-right: 5px;
-      }
-
-      .profile {
-        width: 32px;
-        height: 32px;
-
-        img {
-          display: block;
-          width: 100%;
-          height: auto;
+      .gnb_item {
+        @include text-style(13, $dark);
+        // display: block;
+        margin: 0 8px;
+        padding: 12px 0 10px;
+        height: 40px;
+        transition: color 0.1s ease-in-out;
+        &:hover {
+          color: $blue;
         }
       }
     }
@@ -88,52 +120,95 @@ header {
 }
 
 @include responsive(T) {
-  body {
-    background: cadetblue;
-  }
+  header {
+    .header_top {
+      .header_content {
+        height: 80px;
 
-  &.gnb_icon_group {
-    @include flex;
+        .header_content_icon_group {
+          @include flex;
 
-    .search_group {
-      margin-right: 24px;
-    }
-    .cartBtn {
-      margin-right: 5px;
+          .search_group {
+            margin-right: 24px;
+          }
+          .cartBtn {
+            margin-right: 5px;
 
-      &:hover {
-        border-radius: 50%;
-        background-color: $blue;
+            &:hover {
+              border-radius: 50%;
+              background-color: $blue;
+            }
+          }
+          .header_user_list {
+            @include flex;
+            color: $primary;
+
+            .header_user_item_login {
+              position: relative;
+              margin-right: 15px;
+              transition: color 0.1s ease-in-out;
+
+              &::after {
+                @include pos-center-y;
+                right: -8px;
+                display: block;
+                content: "";
+                width: 1px;
+                height: 16px;
+                background-color: black;
+              }
+              &:hover {
+                color: $blue;
+              }
+            }
+
+            .header_user_item_join {
+              transition: color 0.1s ease-in-out;
+
+              &:hover {
+                color: $blue;
+              }
+            }
+          }
+        }
       }
     }
-    .gnb_list {
-      @include flex;
-      color: $primary;
 
-      .gbn_item_login {
-        position: relative;
-        margin-right: 15px;
-        transition: color 0.1s ease-in-out;
+    .gnb {
+      nav {
+        @include flex(flex-start);
+        height: auto;
 
-        &::after {
-          @include pos-center-y;
-          right: -8px;
-          display: block;
-          content: "";
-          width: 1px;
-          height: 16px;
-          background-color: black;
+        .menuBtn {
+          margin-right: 8px;
         }
-        &:hover {
-          color: $blue;
+
+        .gnb_list {
+          &::-webkit-scrollbar {
+            height: 0;
+          }
+
+          .gnb_item {
+            @include text-style(14, $dark);
+            margin: 0 10px;
+            padding: 14px 0;
+            height: 50px;
+          }
         }
       }
 
-      .gbn_item_join {
-        transition: color 0.1s ease-in-out;
+      .lnb_list {
+        @include flex(flex-start);
+        @include text-style(14, $primary);
+        padding: 10px 40px;
+        height: 50px;
 
-        &:hover {
-          color: $blue;
+        .lnb_item {
+          margin-right: 20px;
+          transition: color 0.1s ease-in-out;
+          &:hover {
+            color: $blue;
+          }
         }
       }
     }
@@ -141,7 +216,4 @@ header {
 }
 
 @include responsive(D) {
-  body {
-    background-color: green;
-  }
 }
