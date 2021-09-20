@@ -1,5 +1,12 @@
 @import "../../main.scss";
 
-body {
+// @import "slick-carousel/slick/slick.css";
+// @import "slick-carousel/slick/slick-theme.css";
+
+$top_margin: 96px;
+
+.home {
+  padding-top: $top_margin;
   height: 1000px;
+  z-index: -100;
 }
