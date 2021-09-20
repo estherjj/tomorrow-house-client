@@ -12,7 +12,7 @@ import { ReactComponent as BookmarkIcon } from '../../assets/Icon/Bookmark.svg';
 import { ReactComponent as BellIcon } from '../../assets/Icon/Bell.svg';
 import {ReactComponent as Close} from '../../assets/Icon/Close.svg';
 
-function Header(){
+function Header(props){
   const [category, setCategory] = useState(['가구', '패브릭', '조명', '가전', '주방용품', '장식/소품', '수납/정리', '생활용품', '생필품']);
   const [cartBtnColor, setCartBtnColor] = useState("#3f4150");
   const [drawerShow, setDrawerShow] = useState(false);

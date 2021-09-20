@@ -15,45 +15,57 @@
   bottom: 10px;
   width: 100%;
   text-align: center;
-}
 
-.slick_dots li {
-  position: relative;
-  display: inline-block;
-  // width: 20px;
-  // height: 20px;
-  // /*margin: 1px;*/
-  // padding: 0;
-  // cursor: pointer;
-}
+  li {
+    position: relative;
+    display: inline-block;
 
-.slick_dots li button {
-  // font-size: 0;
-  // line-height: 0;
-  display: block;
-  width: 10px;
-  height: 10px;
-  padding: 10px;
-  cursor: pointer;
-  color: transparent;
-  // border: 0;
-  // outline: 0;
-  // background: 0 0;
-}
+    button {
+      display: block;
+      width: 10px;
+      height: 10px;
+      padding: 10px;
+      cursor: pointer;
+      color: transparent;
 
-.slick_dots li button:before {
-  font-size: 2rem;
-  line-height: 20px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: "•";
-  text-align: center;
-  opacity: 0.75;
-  color: #6d6968;
+      &::before {
+        font-size: 2rem;
+        line-height: 20px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "•";
+        text-align: center;
+        opacity: 0.75;
+        color: #6d6968;
+      }
+    }
+  }
 }
 
 .slick_dots :global(li.slick-active) button:before {
   opacity: 0.75;
   color: #ffffff;
+}
+
+@include responsive(T) {
+  body {
+    .carousel {
+      height: 270px;
+      img {
+        height: 100%;
+      }
+    }
+  }
+}
+
+@include responsive(D) {
+  body {
+    .carousel {
+      height: 360px;
+      img {
+        height: 100%;
+      }
+    }
+  }
 }

@@ -7,7 +7,7 @@ function HomePresenter(){
 
   return (
     <div className={styles.home}>
-      <Carousel />
+      <Carousel/>
       {/* <div className={styles.container}>
         <div className={styles.row}>
           <div className={styles.col_sm_4}>

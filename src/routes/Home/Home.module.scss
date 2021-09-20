@@ -3,10 +3,19 @@
 // @import "slick-carousel/slick/slick.css";
 // @import "slick-carousel/slick/slick-theme.css";
 
-$top_margin: 96px;
+$sm_top_margin: 96px;
+$md_top_margin: 130px;
 
 .home {
-  padding-top: $top_margin;
+  padding-top: $sm_top_margin;
   height: 1000px;
   z-index: -100;
+}
+
+@include responsive(T) {
+  body {
+    .home {
+      padding-top: $md_top_margin;
+    }
+  }
 }
