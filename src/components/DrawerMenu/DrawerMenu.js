@@ -48,10 +48,10 @@ function DrawerMenu(props){
           <Store fill="#3f4150" className={`${styles.icon} ${styles.storeIcon}`}/>
           <ul className={styles.drawer_menu_category_list}>
             {
-              category.map(item=> {
+              category.map((item, index)=> {
                 return (<li className={styles.drawer_menu_category_item} onClick={()=>{
                   props.setDrawerShow(false)
-                }}>
+                }} key={index}>
                   <Link to="/category">{item}</Link>
                 </li>)
               })
