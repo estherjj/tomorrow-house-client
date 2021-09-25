@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React  from 'react';
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 
@@ -11,6 +11,7 @@ import styles from './Carousel.module.scss';
 
 
 function Carousel(){
+
   const settings = {
     dots: true,
     infinite: true,
