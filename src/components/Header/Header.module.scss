@@ -126,6 +126,13 @@ header {
       .header_content {
         height: 80px;
 
+        .logo {
+          a {
+            width: 90px;
+            height: auto;
+          }
+        }
+
         .header_content_icon_group {
           @include flex;
 
