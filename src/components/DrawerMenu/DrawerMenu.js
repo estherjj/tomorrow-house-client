@@ -1,12 +1,15 @@
 import React, {useState, useRef }  from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import styles from './DrawerMenu.module.scss';
 
 import {ReactComponent as Store} from "../../assets/Icon/Store.svg";
 
 function DrawerMenu(props){
   const drawer_section = useRef();
-  const [category, setCategory] = useState(['가구', '패브릭', '조명', '가전', '주방용품', '장식/소품', '수납/정리', '생활용품', '생필품']);
+
+  let category = useSelector((state)=>state.reducerCategory);
+ 
 
   return(
     <>
@@ -48,10 +51,10 @@ function DrawerMenu(props){
           <Store fill="#3f4150" className={`${styles.icon} ${styles.storeIcon}`}/>
           <ul className={styles.drawer_menu_category_list}>
             {
-              category.map(item=> {
+              category.map((item, index)=> {
                 return (<li className={styles.drawer_menu_category_item} onClick={()=>{
                   props.setDrawerShow(false)
-                }}>
+                }} key={index}>
                   <Link to="/category">{item}</Link>
                 </li>)
               })

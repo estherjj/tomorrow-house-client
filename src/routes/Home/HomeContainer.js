@@ -3,9 +3,9 @@ import HomePresenter from './HomePresenter';
 
 function HomeContainer(){
   return(
-    <section>
+    <>
       <HomePresenter />
-    </section>
+    </>
   )
 }
 
