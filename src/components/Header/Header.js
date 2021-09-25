@@ -1,5 +1,6 @@
 import React, { useState} from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import styles from './Header.module.scss';
 
 import DrawerMenu from '../DrawerMenu/DrawerMenu';
@@ -13,13 +14,15 @@ import { ReactComponent as BellIcon } from '../../assets/Icon/Bell.svg';
 import {ReactComponent as Close} from '../../assets/Icon/Close.svg';
 
 function Header(props){
-  const [category, setCategory] = useState(['가구', '패브릭', '조명', '가전', '주방용품', '장식/소품', '수납/정리', '생활용품', '생필품']);
+  
   const [cartBtnColor, setCartBtnColor] = useState("#3f4150");
   const [drawerShow, setDrawerShow] = useState(false);
   const [searchModalShow, setSearchModalShow] = useState(false);
   const [closeBtnShow, setCloseBtnShow] = useState(false);
   const [lnbShow, setLngShow] = useState(false);
 
+  let category = useSelector((state)=>state.reducerCategory);
+ 
   return (
     <>
     <header>
