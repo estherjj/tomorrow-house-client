@@ -106,6 +106,9 @@ $md_top_margin: 130px;
     .form {
       @include text-style(18, $primary);
       .form_agreement {
+        .form_agreement_title {
+          @include text-style(18, $primary);
+        }
         .form_agreement_box {
           @include text-style(16);
         }
