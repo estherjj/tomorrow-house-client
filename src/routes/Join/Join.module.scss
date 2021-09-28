@@ -18,6 +18,9 @@ $md_top_margin: 130px;
     &::placeholder {
       color: $tertiary;
     }
+    &:focus {
+      border: 1px solid $red;
+    }
   }
 }
 
@@ -41,19 +44,36 @@ $md_top_margin: 130px;
 
   h2 {
     @include text-style(18, $primary);
-    margin: 20px 0;
+    margin: 36px 0 20px;
   }
   .form {
     @include text-style(16, $primary);
     width: 100%;
     .form_id {
       @extend %input-base;
+      .id_warning {
+        margin: 3px 0;
+        @include text-style(13, $red);
+      }
     }
-    .form_firstPassword {
+    .form_password {
       @extend %input-base;
+
+      .password_notice {
+        margin-top: 5px;
+        @include text-style(13, $secondary);
+      }
+      .red {
+        color: $red;
+      }
     }
-    .form_lastPassword {
+    .form_passwordCheck {
       @extend %input-base;
+
+      .passwordCheck_warning {
+        margin: 3px 0;
+        @include text-style(13, $red);
+      }
     }
     .form_agreement {
       margin: 10px 0 30px;

@@ -3,12 +3,78 @@ import styles from './Join.module.scss';
 
 function JoinPresenter(){
 
+  //id, pw 확인 state
+  const [id, setId] = useState('');
+  const [idError, setIdError] = useState(false);
+  const [pw, sestPw] = useState('');
+  const [pwCheck, setPwCheck] = useState('');
+  const [pwOrder, setPwOrder] = useState(true);
+  const [pwError, setPwError] = useState(false);
+
+  //id state 저장
+  const idCheckEvent = (e) => {
+    setId(e.target.value)
+  }
+
+  //id 이메일 형식 체크
+  useEffect(()=>{
+    const regExp =  /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+    if( regExp.test(id)) {
+      setIdError(false)
+      return
+    } 
+    if (!regExp.test(id) && id !== '') {
+      setIdError(true)
+    }
+  }, [id])
+
+  //password state 저장
+  const passworSave = (e) => {
+    sestPw(e.target.value);
+  }
+
+  //passwordCheck state 저장
+  const passworCheckSave = (e) => {
+    setPwCheck(e.target.value);
+  }
+
+  //password disabled false일 때
+  useEffect(()=>{
+    if(pw !== '') {
+      setPwOrder(false);
+    }
+  }, [pw])
+
+  //password disabled true일 때
+  useEffect(()=>{
+    if(pw === '' && pwCheck === '') {
+      setPwOrder(true);
+    }
+  }, [pw, pwCheck])
+
+  //password 일치여부 확인
+  useEffect(()=> {
+    if(pwCheck.length < pw.length) {
+      setPwError(false);
+      return
+    }
+
+    if(pw !== '' && pwCheck !== '' && pw !== pwCheck) {
+      setPwError(true)
+    } else {
+      setPwError(false)
+    }
+  }, [pw, pwCheck])
+
+
+  //약관동의 체크버튼 state
   const [allCheck, setAllCheck] = useState(false);
   const [ageCheck, setAgeCheck] = useState(false);
   const [useCheck, setUseCheck] = useState(false);
   const [marketingCheck, setMarketingCheck] = useState(false);
 
 
+  //전체동의 항목 체크 이벤트
   const allBtnEvent =(e)=>{
     if(allCheck === false) {
       setAllCheck(true);
@@ -22,6 +88,8 @@ function JoinPresenter(){
       setMarketingCheck(false);
     } 
   };
+
+  //나이 항목 체크 이벤트
   const ageBtnEvent =()=>{
     if(ageCheck === false) {
       setAgeCheck(true)
@@ -29,6 +97,8 @@ function JoinPresenter(){
       setAgeCheck(false)
     }
   };
+
+  //이용약관 항목 체크 이벤트
   const useBtnEvent =()=>{
     if(useCheck === false) {
       setUseCheck(true)
@@ -36,6 +106,8 @@ function JoinPresenter(){
       setUseCheck(false)
     }
   };
+
+  //마케팅 항목 체크 이벤트
   const marketingBtnEvent =()=>{
     if(marketingCheck === false) {
       setMarketingCheck(true)
@@ -44,6 +116,7 @@ function JoinPresenter(){
     }
   };
 
+  //세부항목 모두 체크 시 전체동의 항목 체크
   useEffect(()=>{
     if(ageCheck===true && useCheck===true && marketingCheck===true){
       setAllCheck(true)
@@ -53,7 +126,13 @@ function JoinPresenter(){
   }, [ageCheck,useCheck, marketingCheck])
 
 
-  
+  //submit 확인
+  const submitEvent = () => {
+    if(ageCheck === false || useCheck === false) {
+      
+      console.log("필수 약관동의를 체크해주세요");
+    } 
+  }
 
 
   return (
@@ -66,18 +145,26 @@ function JoinPresenter(){
               <form method="get" action="/" className={styles.form}>
                 <div className={styles.form_id}>
                   <label for="id">아이디</label>
-                  <input id="id" type="email" placeholder="이메일(아이디)" />
+                  <input id="id" type="email" placeholder="이메일(아이디)" name="id" required onBlur={idCheckEvent}/>
+                  {
+                    idError === true
+                    ? <p className={styles.id_warning}>이메일 형식이 올바르지 않습니다.</p>
+                    : null
+                  }
                 </div>
-                <div className={styles.form_firstPassword}>
-                  <label for="firstPassword">비밀번호</label>
-                  <input id="firstPassword" type="password" placeholder="비밀번호"  />
-                  <p>
-
-                  </p>
+                <div className={styles.form_password}>
+                  <label for="password">비밀번호</label>
+                  <input id="password" type="password" placeholder="비밀번호" name="password" minLength="8" required onChange={passworSave}/>
+                  <p className={`${styles.password_notice}`}>영문, 숫자를 포함한 8자 이상의 비밀번호를 입력해주세요.</p>
                 </div>
-                <div className={styles.form_lastPassword}>
-                  <label for="lastPassword">비밀번호 확인</label>
-                  <input id="lastPassword" type="password" placeholder="비밀번호 확인" />
+                <div className={styles.form_passwordCheck}>
+                  <label for="passwordCheck">비밀번호 확인</label>
+                  <input id="passwordCheck" type="password" placeholder="비밀번호 확인" name="passwordCheck" disabled={pwOrder} required onChange={passworCheckSave}/>
+                  {
+                    pwError === true
+                    ? <p className={styles.passwordCheck_warning}>비밀번호가 일치하지 않습니다</p>
+                    : null
+                  }
                 </div>
                 {/* 약관동의 */}
                 <div className={styles.form_agreement}>
@@ -101,7 +188,7 @@ function JoinPresenter(){
                     </div>
                   </div>
                 </div>
-                <button type="submit" className={`${styles.btn_primary} ${styles.btn_55} ${styles.btn_submit}`}>회원가입하기</button>
+                <button type="button" className={`${styles.btn_primary} ${styles.btn_55} ${styles.btn_submit}`} onClick={submitEvent}>회원가입하기</button>
               </form>
             </div>
           </div>
