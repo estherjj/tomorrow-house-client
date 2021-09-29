@@ -21,7 +21,7 @@ function Header(props){
   const [closeBtnShow, setCloseBtnShow] = useState(false);
   const [lnbShow, setLngShow] = useState(false);
 
-  let category = useSelector((state)=>state.reducerCategory);
+  let category = useSelector((state)=>state.categoryReducer);
  
   return (
     <>

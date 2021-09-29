@@ -1,4 +1,4 @@
-import React, {useState, useRef }  from "react";
+import React, {useState, useRef, useEffect }  from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import styles from './DrawerMenu.module.scss';
@@ -8,7 +8,7 @@ import {ReactComponent as Store} from "../../assets/Icon/Store.svg";
 function DrawerMenu(props){
   const drawer_section = useRef();
 
-  let category = useSelector((state)=>state.reducerCategory);
+  let category = useSelector((state)=>state.categoryReducer);
  
 
   return(
