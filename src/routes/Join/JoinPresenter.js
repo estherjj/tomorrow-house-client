@@ -10,7 +10,7 @@ function JoinPresenter(props){
           <div className={styles.col_sm_4}>
             <div className={styles.join}>
               <h2>회원가입</h2>
-              <form method="post" action="/" className={styles.form}>
+              <form method="POST" action="/" className={styles.form}>
                 <div className={styles.form_userName}>
                   <label for="userName">이름</label>
                   <input id="userName" type="text" placeholder="이름" name="userName" required onChange={props.userNameSave}/>
@@ -31,7 +31,7 @@ function JoinPresenter(props){
                 </div>
                 <div className={styles.form_passwordCheck}>
                   <label for="passwordCheck">비밀번호 확인</label>
-                  <input id="passwordCheck" type="password" placeholder="비밀번호 확인" name="passwordCheck" disabled={props.pwOrder} required onChange={props.passworCheckSave}/>
+                  <input id="passwordCheck" type="password" placeholder="비밀번호 확인" name="passwordCheck" disabled={props.pwOrder} required onBlur={props.passworCheckSave}/>
                   {
                     props.pwError === true
                     ? <p className={styles.passwordCheck_warning}>비밀번호가 일치하지 않습니다</p>
@@ -43,24 +43,24 @@ function JoinPresenter(props){
                   <label className={styles.form_agreement_title}>약관동의</label>
                   <div className={styles.form_agreement_box}>
                     <div className={styles.form_agreement_all}>
-                      <input type="checkbox" id="all-check" checked={props.allCheck} onChange={props.allBtnEvent}/>
+                      <input type="checkbox" id="all-check" name="agreement" value="agreeAll" checked={props.allCheck} onChange={props.allBtnEvent}/>
                       <label for="all-check">전체동의</label>
                     </div>
                     <div className={styles.form_agreement_item}>
-                      <input type="checkbox" id="check1" checked={props.ageCheck} onChange={props.ageBtnEvent}/>
+                      <input type="checkbox" id="check1" name="agreement" value="agreeAge" checked={props.ageCheck} onChange={props.ageBtnEvent}/>
                       <label for="check1">만 14세 이상입니다 <span className={styles.blue}>(필수)</span></label>
                     </div>
                     <div className={styles.form_agreement_item}>
-                      <input type="checkbox" id="check2" checked={props.useCheck}  onChange={props.useBtnEvent}/>
+                      <input type="checkbox" id="check2" name="agreement" value="agreeUse" checked={props.useCheck}  onChange={props.useBtnEvent}/>
                       <label for="check2">이용약관 <span className={styles.blue}>(필수)</span></label>
                     </div>
                     <div className={styles.form_agreement_item}>
-                      <input type="checkbox" id="check3" checked={props.marketingCheck}  onChange={props.marketingBtnEvent}/>
+                      <input type="checkbox" id="check3" name="agreement" value="agreeMarketing" checked={props.marketingCheck}  onChange={props.marketingBtnEvent}/>
                       <label for="check3">마케팅 동의 <span className={styles.gray}>(선택)</span></label>
                     </div>
                   </div>
                 </div>
-                <button type="button" className={`${styles.btn_primary} ${styles.btn_55} ${styles.btn_submit}`} >회원가입하기</button>
+                <button type="submit" className={`${styles.btn_primary} ${styles.btn_55} ${styles.btn_submit}`} >회원가입하기</button>
               </form>
             </div>
           </div>

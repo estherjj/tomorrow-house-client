@@ -60,10 +60,10 @@ function JoinContainer(){
 
   //password 일치여부 확인
   useEffect(()=> {
-    if(pwCheck.length < pw.length) {
-      setPwError(false);
-      return
-    }
+    // if(pwCheck.length < pw.length) {
+    //   setPwError(false);
+    //   return
+    // }
 
     if(pw !== '' && pwCheck !== '' && pw !== pwCheck) {
       setPwError(true)
