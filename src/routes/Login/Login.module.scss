@@ -1,0 +1,51 @@
+@import "../../main.scss";
+
+$sm_top_margin: 96px;
+$md_top_margin: 130px;
+
+.login {
+  padding-top: $sm_top_margin;
+  @include flex-column;
+
+  h2 {
+    @include text-style(18, $primary);
+    margin: 36px 0 20px;
+  }
+  .form {
+    @include text-style(16, $primary);
+    width: 100%;
+    input {
+      margin-bottom: 10px;
+      padding: 10px;
+      width: 100%;
+      border: 1px solid $border;
+      border-radius: 4px;
+      &::placeholder {
+        color: $tertiary;
+      }
+      &:focus {
+        border: 1px solid $red;
+      }
+    }
+    .btn_submit {
+      margin-top: 20px;
+      width: 100%;
+    }
+  }
+}
+
+@include responsive(T) {
+  .login {
+    padding-top: $md_top_margin + 20px;
+    margin: 0 auto;
+    width: 400px;
+
+    h2 {
+      @include text-style(24, $primary);
+      margin: 42px 0;
+    }
+    .form {
+      @include text-style(18, $primary);
+    }
+  }
+}
