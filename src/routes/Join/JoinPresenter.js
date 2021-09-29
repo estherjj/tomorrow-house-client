@@ -10,11 +10,10 @@ function JoinPresenter(props){
           <div className={styles.col_sm_4}>
             <div className={styles.join}>
               <h2>회원가입</h2>
-              <form method="get" action="/" className={styles.form}>
+              <form method="post" action="/" className={styles.form}>
                 <div className={styles.form_userName}>
                   <label for="userName">이름</label>
                   <input id="userName" type="text" placeholder="이름" name="userName" required onChange={props.userNameSave}/>
-      
                 </div>
                 <div className={styles.form_id}>
                   <label for="id">아이디</label>
