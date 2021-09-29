@@ -3,7 +3,8 @@ import styles from './Join.module.scss';
 
 function JoinPresenter(){
 
-  //id, pw 확인 state
+  //userName, id, pw 
+  const [userName, setUserName] = useState('');
   const [id, setId] = useState('');
   const [idError, setIdError] = useState(false);
   const [pw, sestPw] = useState('');
@@ -11,8 +12,13 @@ function JoinPresenter(){
   const [pwOrder, setPwOrder] = useState(true);
   const [pwError, setPwError] = useState(false);
 
+  //userName state 저장
+  const userNameSave = (e) => {
+    setUserName(e.target.value);
+  }
+
   //id state 저장
-  const idCheckEvent = (e) => {
+  const idSave = (e) => {
     setId(e.target.value)
   }
 
@@ -143,9 +149,14 @@ function JoinPresenter(){
             <div className={styles.join}>
               <h2>회원가입</h2>
               <form method="get" action="/" className={styles.form}>
+                <div className={styles.form_userName}>
+                  <label for="userName">이름</label>
+                  <input id="userName" type="text" placeholder="이름" name="userName" required onChange={userNameSave}/>
+      
+                </div>
                 <div className={styles.form_id}>
                   <label for="id">아이디</label>
-                  <input id="id" type="email" placeholder="이메일(아이디)" name="id" required onBlur={idCheckEvent}/>
+                  <input id="id" type="email" placeholder="아이디(이메일)" name="id" required onChange={idSave}/>
                   {
                     idError === true
                     ? <p className={styles.id_warning}>이메일 형식이 올바르지 않습니다.</p>
