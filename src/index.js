@@ -2,16 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { combineReducers, createStore } from 'redux';
+import axios from 'axios';
 
 import App from './components/App';
+import categoryReducer from './reducer/category';
+import userReducer from './reducer/user';
 
-let category = ['가구', '패브릭', '조명', '가전', '주방용품', '장식/소품', '수납/정리', '생활용품', '생필품'];
+// axios.defaults.baseURL = "url";
+axios.defaults.withCredentials = true;
 
-function reducerCategory(state = category, action){
-  return state
-}
 
-let store = createStore(combineReducers({reducerCategory}));
+
+let store = createStore(combineReducers({categoryReducer, userReducer}));
 
 
 ReactDOM.render(
