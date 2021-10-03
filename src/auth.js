@@ -1,20 +1,24 @@
 import axios from "axios";
+import Cookie from 'js-cookie';
 
-const JWT_EXPIRY_TIME = 24 * 3600 * 1000;
+export const refreshTokenRequest = () => {
+  const refreshToken = Cookie.get("refreshToken");
+  const data = {
+    refreshToken
+  };
+  const headers = {
+    'Content-Type': 'application/json'
+  };
 
-export const onSilentRefresh = () => {
-  axios.post('/silent-refresh', {headers : {'Content-Type': 'application/json'}} )
+  axios.post('/token/refresh', data , {headers: headers})
   .then((res)=>{
     const { accessToken } = res.data;
 
     // accessToken 설정
     axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
-
-    // accessToken 만료하기 1분 전에 로그인 연장
-    setTimeout(onSilentRefresh, JWT_EXPIRY_TIME - 60000);
   })
   .catch(error => {
-      console.log('error')
+      console.log('refreshToken error')
   });
 }
 
