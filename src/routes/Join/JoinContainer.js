@@ -35,7 +35,7 @@ function JoinContainer(){
   }, [id])
 
   //password state 저장
-  const passworSave = (e) => {
+  const passwordSave = (e) => {
     sestPw(e.target.value);
   }
 
@@ -137,7 +137,7 @@ function JoinContainer(){
 
   return(
     <>
-      <JoinPresenter userNameSave={userNameSave} idSave={idSave} idError={idError} passworSave={passworSave} passworCheckSave={passworCheckSave} pwOrder={pwOrder} pwError={pwError} 
+      <JoinPresenter userNameSave={userNameSave} idSave={idSave} idError={idError} passwordSave={passwordSave} passworCheckSave={passworCheckSave} pwOrder={pwOrder} pwError={pwError} 
       allBtnEvent={allBtnEvent} allCheck={allCheck} ageCheck={ageCheck} ageBtnEvent={ageBtnEvent} useCheck={useCheck} useBtnEvent={useBtnEvent} marketingCheck={marketingCheck} marketingBtnEvent={marketingBtnEvent}/>
     </>
   )
