@@ -43,19 +43,19 @@ function JoinPresenter(props){
                   <label className={styles.form_agreement_title}>약관동의</label>
                   <div className={styles.form_agreement_box}>
                     <div className={styles.form_agreement_all}>
-                      <input type="checkbox" id="all-check" name="agreement" value="agreeAll" checked={props.allCheck} onChange={props.allBtnEvent}/>
+                      <input type="checkbox" id="all-check" name="agreement" value="agreeAll" checked={props.allCheck} onChange={props.allTermsBtnEvent}/>
                       <label for="all-check">전체동의</label>
                     </div>
                     <div className={styles.form_agreement_item}>
-                      <input type="checkbox" id="check1" name="agreement" value="agreeAge" checked={props.ageCheck} onChange={props.ageBtnEvent}/>
+                      <input type="checkbox" id="check1" name="agreement" value="agreeAge" checked={props.ageCheck} onChange={props.ageTermsBtnEvent}/>
                       <label for="check1">만 14세 이상입니다 <span className={styles.blue}>(필수)</span></label>
                     </div>
                     <div className={styles.form_agreement_item}>
-                      <input type="checkbox" id="check2" name="agreement" value="agreeUse" checked={props.useCheck}  onChange={props.useBtnEvent}/>
+                      <input type="checkbox" id="check2" name="agreement" value="agreeUse" checked={props.useCheck}  onChange={props.serviceTermsBtnEvent}/>
                       <label for="check2">이용약관 <span className={styles.blue}>(필수)</span></label>
                     </div>
                     <div className={styles.form_agreement_item}>
-                      <input type="checkbox" id="check3" name="agreement" value="agreeMarketing" checked={props.marketingCheck}  onChange={props.marketingBtnEvent}/>
+                      <input type="checkbox" id="check3" name="agreement" value="agreeMarketing" checked={props.marketingCheck}  onChange={props.marketingTermsBtnEvent}/>
                       <label for="check3">마케팅 동의 <span className={styles.gray}>(선택)</span></label>
                     </div>
                   </div>

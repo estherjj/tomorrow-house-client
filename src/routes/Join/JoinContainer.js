@@ -81,7 +81,7 @@ function JoinContainer(){
 
 
   //전체동의 항목 체크 이벤트
-  const allBtnEvent =(e)=>{
+  const allTermsBtnEvent =(e)=>{
     if(allCheck === false) {
       setAllCheck(true);
       setAgeCheck(true);
@@ -96,7 +96,7 @@ function JoinContainer(){
   };
 
   //나이 항목 체크 이벤트
-  const ageBtnEvent =()=>{
+  const ageTermsBtnEvent =()=>{
     if(ageCheck === false) {
       setAgeCheck(true)
     }else {
@@ -105,7 +105,7 @@ function JoinContainer(){
   };
 
   //이용약관 항목 체크 이벤트
-  const useBtnEvent =()=>{
+  const serviceTermsBtnEvent =()=>{
     if(useCheck === false) {
       setUseCheck(true)
     }else {
@@ -114,7 +114,7 @@ function JoinContainer(){
   };
 
   //마케팅 항목 체크 이벤트
-  const marketingBtnEvent =()=>{
+  const marketingTermsBtnEvent =()=>{
     if(marketingCheck === false) {
       setMarketingCheck(true)
     }else {
@@ -138,7 +138,7 @@ function JoinContainer(){
   return(
     <>
       <JoinPresenter userNameSave={userNameSave} idSave={idSave} idError={idError} passwordSave={passwordSave} passworCheckSave={passworCheckSave} pwOrder={pwOrder} pwError={pwError} 
-      allBtnEvent={allBtnEvent} allCheck={allCheck} ageCheck={ageCheck} ageBtnEvent={ageBtnEvent} useCheck={useCheck} useBtnEvent={useBtnEvent} marketingCheck={marketingCheck} marketingBtnEvent={marketingBtnEvent}/>
+      allTermsBtnEvent={allTermsBtnEvent} allCheck={allCheck} ageCheck={ageCheck} ageTermsBtnEvent={ageTermsBtnEvent} useCheck={useCheck} serviceTermsBtnEvent={serviceTermsBtnEvent} marketingCheck={marketingCheck} marketingTermsBtnEvent={marketingTermsBtnEvent}/>
     </>
   )
 }
