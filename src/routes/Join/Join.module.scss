@@ -1,0 +1,141 @@
+@import "../../main.scss";
+
+$sm_top_margin: 96px;
+$md_top_margin: 130px;
+
+%input-base {
+  margin: 20px 0 30px;
+  @include flex-column(flex-start, flex-start);
+  label {
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  input {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid $border;
+    border-radius: 4px;
+    &::placeholder {
+      color: $tertiary;
+    }
+    &:focus {
+      border: 1px solid $red;
+    }
+  }
+}
+
+%check-base {
+  padding: 10px 0;
+  @include flex(flex-start);
+  border-bottom: 1px solid $border;
+  input {
+    margin-right: 6px;
+    width: 18px;
+    height: 18px;
+  }
+  label {
+    font-weight: 700;
+  }
+}
+
+.join {
+  padding-top: $sm_top_margin;
+  @include flex-column;
+
+  h2 {
+    @include text-style(18, $primary);
+    margin: 36px 0 20px;
+  }
+  .form {
+    @include text-style(16, $primary);
+    width: 100%;
+    .form_userName {
+      @extend %input-base;
+    }
+    .form_id {
+      @extend %input-base;
+      .id_warning {
+        margin: 3px 0;
+        @include text-style(13, $red);
+      }
+    }
+    .form_password {
+      @extend %input-base;
+
+      .password_notice {
+        margin-top: 5px;
+        @include text-style(13, $secondary);
+      }
+      .red {
+        color: $red;
+      }
+    }
+    .form_passwordCheck {
+      @extend %input-base;
+
+      .passwordCheck_warning {
+        margin: 3px 0;
+        @include text-style(13, $red);
+      }
+    }
+    .form_agreement {
+      margin: 10px 0 30px;
+      .form_agreement_title {
+        margin-bottom: 10px;
+        display: block;
+        @include text-style(16, $primary);
+        font-weight: 700;
+      }
+      .form_agreement_box {
+        @include text-style(14);
+        padding: 0 20px 0;
+        border: 1px solid $border;
+
+        .form_agreement_all {
+          @extend %check-base;
+        }
+        .form_agreement_item {
+          @extend %check-base;
+          border-bottom: none;
+          label {
+            font-weight: 400;
+            .blue {
+              color: $blue;
+            }
+            .gray {
+              color: $tertiary;
+            }
+          }
+        }
+      }
+    }
+    .btn_submit {
+      margin: 10px 0 40px;
+      width: 100%;
+    }
+  }
+}
+
+@include responsive(T) {
+  .join {
+    padding-top: $md_top_margin + 20px;
+    margin: 0 auto;
+    width: 400px;
+
+    h2 {
+      @include text-style(24, $primary);
+      margin: 36px 0;
+    }
+    .form {
+      @include text-style(18, $primary);
+      .form_agreement {
+        .form_agreement_title {
+          @include text-style(18, $primary);
+        }
+        .form_agreement_box {
+          @include text-style(16);
+        }
+      }
+    }
+  }
+}
