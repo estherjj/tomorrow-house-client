@@ -19,7 +19,7 @@ function LoginContainer(){
       'Content-Type': 'application/json'
     };
 
-    axios.post("/login", data, {headers: headers})
+    axios.post("http://127.0.0.1:8000/api/v1/users/token/", data, {headers: headers})
     .then((res)=> {
       const {accessToken} = res.data;
       dispatch({type: 'LOGIN_SUCCESS', payload: {"accessToken": accessToken}});
