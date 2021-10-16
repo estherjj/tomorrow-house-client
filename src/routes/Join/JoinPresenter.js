@@ -17,22 +17,22 @@ function JoinPresenter(props){
                 <div className={styles.form_userName}>
                   <label for="userName">이름</label>
                   <input id="userName" type="text" placeholder="이름" name="userName" ref={props.register({required: true})}/>
-                  {props.errors.userName && <p className={styles.input_warning_warning}>이름을 입력해주세요</p>}
+                  {props.errors.userName && <p className={styles.input_warning}>이름을 입력해주세요</p>}
                 </div>
                 <div className={styles.form_id}>
                   <label for="id">아이디</label>
                   <input id="id" type="email" placeholder="아이디(이메일)" name="id" ref={props.register({required: true, pattern: /^[0-9A-Z]([-_\.]?[0-9A-Z])*@[0-9A-Z]([-_\.]?[0-9A-Z])*\.[A-Z]{2,6}$/i })}/>
-                  {props.errors.id && <p className={styles.input_warning_warning}>이메일 형식이 올바르지 않습니다.</p>}
+                  {props.errors.id && <p className={styles.input_warning}>이메일 형식이 올바르지 않습니다.</p>}
                 </div>
                 <div className={styles.form_password}>
                   <label for="password">비밀번호</label>
                   <input id="password" type="password" placeholder="비밀번호(8자리 이상)" name="password" ref={props.register({required: true, minLength: 8})}/>
-                  {props.errors.password && <p className={styles.input_warning_warning}>8자 이상의 비밀번호를 입력해주세요.</p>}
+                  {props.errors.password && <p className={styles.input_warning}>8자 이상의 비밀번호를 입력해주세요.</p>}
                 </div>
                 <div className={styles.form_passwordCheck}>
                   <label for="passwordCheck">비밀번호 확인</label>
                   <input id="passwordCheck" type="password" placeholder="비밀번호 확인(8자리 이상)" name="passwordCheck"  ref={props.register({required: true, validate:value => value === props.passwordCheck})}/>
-                  {props.errors.passwordCheck && <p className={styles.input_warning_warning}>비밀번호가 일치하지 않습니다.</p>}
+                  {props.errors.passwordCheck && <p className={styles.input_warning}>비밀번호가 일치하지 않습니다.</p>}
                 </div>
                 {/* 약관동의 */}
                 <div className={styles.form_agreement}>
