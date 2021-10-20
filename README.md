@@ -1,5 +1,11 @@
 # 리액트 프로젝트 - tomorrow_house
 
+# 환경 세팅
+
+* Node.js version : 14.16.0
+* NPM version : 6.14.11
+* create-react-app으로 리액트 프로젝트에 필요한 패키지들 묶어 리액트 앱 성성
+
 
 # 실행 방법
 
