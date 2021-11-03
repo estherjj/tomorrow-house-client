@@ -9,7 +9,12 @@
 
 # 실행 방법
 
-* 터미널에서 npm start 입력하여 앱 실행 -> localhost:3000으로 접근 가능
+* npm 설치 
+* git clone 'https://github.com/estherjj/tomorrow-house-client.git'
+* npm install
+* npm install sass
+* npm start 입력하여 앱 실행 (localhost:3000으로 접근 가능)
+* 
 * 로그인, 회원가입 진행은 서버 실행 후 가능
 
 
