@@ -1,76 +1,38 @@
-import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+import React, {useState, useEffect, useRef} from 'react';
+import {useForm} from 'react-hook-form' ;
+import { useHistory } from 'react-router';
 import JoinPresenter from './JoinPresenter';
 
 function JoinContainer(){
 
-  //userName, id, pw 
-  const [userName, setUserName] = useState('');
-  const [id, setId] = useState('');
-  const [idError, setIdError] = useState(false);
-  const [pw, sestPw] = useState('');
-  const [pwCheck, setPwCheck] = useState('');
-  const [pwOrder, setPwOrder] = useState(true);
-  const [pwError, setPwError] = useState(false);
+  const {handleSubmit, register, watch, errors, reset  } = useForm();
+  const password = useRef();
+  password.current = watch("password");
+  const passwordCheck = password.current;
 
-  //userName state 저장
-  const userNameSave = (e) => {
-    setUserName(e.target.value);
-  }
+  const history = useHistory();
 
-  //id state 저장
-  const idSave = (e) => {
-    setId(e.target.value)
-  }
+  const onSubmit = (userData) => {
+    reset();
+    
+    const {userName, id, password} = userData;
+    const data = {userName, id, password};
 
-  //id 이메일 형식 체크
-  useEffect(()=>{
-    const regExp =  /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-    if( regExp.test(id)) {
-      setIdError(false)
-      return
-    } 
-    if (!regExp.test(id) && id !== '') {
-      setIdError(true)
+    if(data && (ageCheck &&  useCheck || allCheck) ){
+      axios.post("http://127.0.0.1:8000/api/v1/users", data)
+      .then((res)=>{
+        console.log('join success');
+        history('/');
+      })
+      .catch((error)=>{
+        console.log('api error');
+      })
+    }else {
+      console.log('error')
     }
-  }, [id])
 
-  //password state 저장
-  const passwordSave = (e) => {
-    sestPw(e.target.value);
   }
-
-  //passwordCheck state 저장
-  const passworCheckSave = (e) => {
-    setPwCheck(e.target.value);
-  }
-
-  //password disabled false일 때
-  useEffect(()=>{
-    if(pw !== '') {
-      setPwOrder(false);
-    }
-  }, [pw])
-
-  //password disabled true일 때
-  useEffect(()=>{
-    if(pw === '' && pwCheck === '') {
-      setPwOrder(true);
-    }
-  }, [pw, pwCheck])
-
-  //password 일치여부 확인
-  useEffect(()=> {
-    // if(pwCheck.length < pw.length) {
-    //   setPwError(false);
-    //   return
-    // }
-
-    if(pw !== '' && pwCheck !== '' && pw !== pwCheck) {
-      setPwError(true)
-    } else {
-      setPwError(false)
-    }
-  }, [pw, pwCheck])
 
 
   //약관동의 체크버튼 state
@@ -137,7 +99,7 @@ function JoinContainer(){
 
   return(
     <>
-      <JoinPresenter userNameSave={userNameSave} idSave={idSave} idError={idError} passwordSave={passwordSave} passworCheckSave={passworCheckSave} pwOrder={pwOrder} pwError={pwError} 
+      <JoinPresenter handleSubmit={handleSubmit} register={register} watch={watch} errors={errors} passwordCheck={passwordCheck} onSubmit={onSubmit}
       allTermsBtnEvent={allTermsBtnEvent} allCheck={allCheck} ageCheck={ageCheck} ageTermsBtnEvent={ageTermsBtnEvent} useCheck={useCheck} serviceTermsBtnEvent={serviceTermsBtnEvent} marketingCheck={marketingCheck} marketingTermsBtnEvent={marketingTermsBtnEvent}/>
     </>
   )

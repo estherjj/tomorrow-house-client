@@ -49,15 +49,15 @@ $md_top_margin: 130px;
   .form {
     @include text-style(16, $primary);
     width: 100%;
+    .input_warning {
+      margin: 3px 0;
+      @include text-style(13, $red);
+    }
     .form_userName {
       @extend %input-base;
     }
     .form_id {
       @extend %input-base;
-      .id_warning {
-        margin: 3px 0;
-        @include text-style(13, $red);
-      }
     }
     .form_password {
       @extend %input-base;
