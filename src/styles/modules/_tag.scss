@@ -7,19 +7,19 @@
   font-weight: 700;
 }
 
-.tag-red {
+.tag_red {
   @extend %tag-base;
   color: $white;
   background-color: $red;
 }
 
-.tag-gray {
+.tag_gray {
   @extend %tag-base;
   color: $secondary;
   background-color: $border;
 }
 
-.tag-green {
+.tag_green {
   @extend %tag-base;
   color: $white;
   background-color: $green;
