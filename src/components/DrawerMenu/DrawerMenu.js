@@ -18,11 +18,11 @@ function DrawerMenu(props){
         props.setDrawerShow(false)
       }
     }}>
-      <h2 className={styles.visually_hidden}>내일의 집</h2>
+      <h2 className={styles.visually_hidden}>케렌시아</h2>
       <div className={styles.drawer_menu}>
         <div className={styles.drawer_menu_header}>
           <div className={styles.logo}>
-            <img src="./images/logo.svg" alt="내일의 집"/>
+            <img src="./images/logo.svg" alt="케렌시아"/>
           </div>
           {/* 로그인 전 */}
           <div className={styles.user_link}>
