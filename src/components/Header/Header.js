@@ -32,7 +32,7 @@ function Header(props){
             <div className={`${styles.col_sm_4} ${styles.col_md_12} ${styles.col_lg_12}`}>
               <div className={styles.header_content}>
                 <h1 className={styles.logo}>
-                  <Link to="/"><img src="./images/logo.svg" alt="내일의 집"/></Link>
+                  <Link to="/"><img src="./images/logo.svg" alt="케렌시아"/></Link>
                 </h1>
 
                 <button type="button" className={`${styles.menuBtn} ${styles.icon} ${styles.sm_only}`} onClick={()=>{
@@ -44,7 +44,7 @@ function Header(props){
                 <div className={styles.header_content_icon_group}>
                   <div className={`${styles.search_group} ${styles.sm_hidden}`} aria-label="검색 버튼">
                     <SearchIcon fill="#3f4150" className={styles.search_icon}/>
-                    <input type="text" placeholder="내일의 집 통합검색" className={styles.search_input} />
+                    <input type="text" placeholder="케렌시아 통합검색" className={styles.search_input} />
                   </div>
 
                   <button type="button" className={`${styles.sm_only} ${styles.icon} ${styles.searchBtn}`} aria-label="검색 버튼" onClick={()=>{
@@ -53,12 +53,12 @@ function Header(props){
                     <SearchIcon fill="#3f4150"/>
                   </button>
                   <Link to="/cart" className={` ${styles.sm_only} ${styles.icon} ${styles.cartBtn}`} aria-label="장바구니로 이동">
-                    <CartIcon  fill={cartBtnColor}/>
+                    <CartIcon fill={cartBtnColor}/>
                   </Link>
 
                   {/* ** Tablet & Desktop 로그인 전 ** */}
                   <Link to="/cart" className={`${styles.sm_hidden} ${styles.icon} ${styles.cartBtn}`} aria-label="장바구니로 이동" onMouseOver={()=>{setCartBtnColor("#fff")}} onMouseOut={()=>{setCartBtnColor("#3f4150")}}>
-                    <CartIcon  fill={cartBtnColor}/>
+                    <CartIcon fill={cartBtnColor}/>
                   </Link>
                   <nav className={styles.sm_hidden}>
                     <h2 className={styles.visually_hidden}>메뉴</h2>
