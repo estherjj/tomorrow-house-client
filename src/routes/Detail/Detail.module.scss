@@ -1,0 +1,381 @@
+@import "../../main.scss";
+
+$sm_top_margin: 96px;
+$md_top_margin: 130px;
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.detail {
+  padding-top: $sm_top_margin;
+
+  .product_item_content {
+    .product_item_company {
+      margin-top: 15px;
+      display: inline-block;
+      @include text-style(13, $blue);
+      font-weight: 700;
+    }
+    .product_item_title {
+      display: inline-block;
+      @include text-style(18, $dark);
+    }
+    .product_item_evaluation {
+      margin-bottom: 3px;
+      @include flex(flex-start, center);
+      .product_item_rate {
+        display: inline-block;
+      }
+      .product_item_review {
+        margin-left: 5px;
+        display: inline-block;
+        @include text-style(13, $blue);
+        font-weight: 700;
+      }
+    }
+
+    .product_item_discount {
+      margin-right: 4px;
+      @include text-style(18, $blue);
+      font-weight: 700;
+    }
+    .product_item_originalPrice {
+      @include text-style(14, $secondary);
+      text-decoration: line-through;
+    }
+    .product_item_priceBottom {
+      margin-bottom: 20px;
+      @include flex(flex-start, center);
+      .product_item_price {
+        @include text-style(24, $dark);
+        font-weight: 700;
+        font-family: Tahoma;
+      }
+      .badge_sale {
+        margin-left: 6px;
+        margin-right: 2px;
+      }
+    }
+
+    .product_point {
+      padding: 12px 0 20px;
+      @include text-style(13, $secondary);
+      border-top: 1px solid $border;
+      div {
+        color: $primary;
+        font-weight: 700;
+      }
+    }
+  }
+
+  //탭
+  .product_item_navigation {
+    padding: 0 8px;
+    border-top: 1px solid $border;
+    border-bottom: 1px solid $border;
+    .nav_list {
+      @include flex(space-between, center);
+      button {
+        padding: 10px 10px;
+        @include text-style(13, $dark);
+        font-weight: 700;
+        .gray {
+          margin-left: 4px;
+          color: $secondary;
+        }
+      }
+      div {
+        width: 100%;
+        height: 3px;
+        background: $blue;
+      }
+    }
+  }
+
+  // 탭별 상세내역
+  .product_tab_list {
+    margin: 20px 0;
+
+    .productInfo_tab {
+      .product_item_img {
+        width: 100%;
+        img {
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+
+    .review_tab {
+      margin-bottom: 100px;
+      .review_tab_top {
+        margin: 20px 0;
+        .review_tab_title {
+          @include text-style(16, $dark);
+          font-weight: 700;
+        }
+        .review_tab_review {
+          margin-left: 6px;
+          @include text-style(16, $blue);
+          font-weight: 700;
+        }
+      }
+      .review_tab_summary {
+        padding: 30px 12px;
+        @include flex;
+        background-color: $background;
+        border-radius: 4px;
+        .review_tab_summary_left {
+          padding: 19px 0;
+          width: 50%;
+          border-right: 1px solid $border;
+          @include flex-column;
+          strong {
+            margin-bottom: 4px;
+            @include text-style(24, $dark);
+            font-weight: 700;
+          }
+        }
+        .review_tab_summary_right {
+          width: 50%;
+          @include flex-column;
+          li {
+            margin: 2px 0;
+            @include flex(flex-start, center);
+            .review_score,
+            .review_number {
+              @include text-style(12, $secondary);
+            }
+            .review_graph {
+              margin: 0 4px;
+              display: inline-block;
+              width: 70px;
+              height: 5px;
+              border-radius: 10px;
+              background-color: $border;
+            }
+          }
+        }
+      }
+
+      .review_likeBtn {
+        p {
+          margin-left: 8px;
+          display: inline-block;
+          @include text-style(13);
+          span {
+            color: $dark;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+
+    .ask_tab {
+      margin-bottom: 70px;
+      .ask_tab_top {
+        margin: 20px 0;
+        .ask_tab_title {
+          @include text-style(16, $dark);
+          font-weight: 700;
+        }
+      }
+      p {
+        padding: 40px 0;
+        background-color: $background;
+        border-radius: 4px;
+        text-align: center;
+        @include text-style(13);
+      }
+    }
+
+    .delivery_tab {
+      margin-bottom: 70px;
+      .delivery_tab_top {
+        margin: 20px 0;
+        .delivery_tab_title {
+          @include text-style(16, $dark);
+          font-weight: 700;
+        }
+      }
+      table {
+        padding: 20px 0;
+        width: 100%;
+        @include text-style(13);
+        text-align: left;
+        background-color: $background;
+        border-radius: 4px;
+      }
+    }
+
+    .recommend_tab {
+      margin-bottom: 70px;
+      .recommend_tab_top {
+        margin: 20px 0;
+        .recommend_tab_title {
+          @include text-style(16, $dark);
+          font-weight: 700;
+        }
+      }
+      p {
+        padding: 40px 0;
+        background-color: $background;
+        border-radius: 4px;
+        text-align: center;
+        @include text-style(13);
+      }
+    }
+  }
+
+  article {
+    .review_user {
+      margin: 20px 0 14px;
+      @include flex(flex-start, center);
+      .review_user_img {
+        margin-right: 8px;
+        width: 28px;
+        height: 28px;
+        img {
+          display: block;
+          width: 100%;
+        }
+      }
+      strong {
+        @include text-style(13);
+      }
+      .review_date {
+        @include flex;
+        .starIcon_group {
+          margin-right: 4px;
+          display: inline-block;
+        }
+        span {
+          @include text-style(12, $secondary);
+        }
+      }
+    }
+
+    .review_text {
+      margin-bottom: 14px;
+      @include text-style(13);
+    }
+
+    .review_likeBtn {
+      button {
+        width: 120px;
+        height: 32px;
+      }
+    }
+  }
+}
+
+@include responsive(T) {
+  .detail {
+    padding-top: $md_top_margin;
+
+    .product_item_carousel {
+      margin: 36px 0 40px;
+      .carousel_img {
+        margin-bottom: 10px;
+        min-width: 303px;
+        max-width: 430px;
+        img {
+          display: block;
+          width: 100%;
+          height: auto;
+          border-radius: 4px;
+        }
+      }
+
+      .carousel_list_group {
+        .carousel_list {
+          @include flex(flex-start, center);
+          .carousel_list_item {
+            margin-right: 10px;
+            button {
+              display: block;
+              width: 56px;
+              height: 56px;
+              img {
+                display: block;
+                width: 100%;
+                height: auto;
+                border-radius: 4px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .product_item_content {
+      padding-top: 36px;
+      max-width: 334px;
+      .product_item_company {
+        margin-top: 0;
+      }
+      .product_item_title {
+        margin-bottom: 4px;
+        @include text-style(24, $dark);
+      }
+      .product_item_evaluation {
+        margin-bottom: 16px;
+        @include flex(flex-start, center);
+      }
+      .product_item_priceBottom {
+        .product_item_price {
+          font-size: 32px;
+        }
+        .product_item_currency {
+          font-size: 28px;
+        }
+      }
+      .product_point {
+        div {
+          margin-bottom: 3px;
+        }
+      }
+    }
+
+    .product_item_navigation {
+      .nav_list {
+        @include flex(space-evenly, center);
+        button {
+          width: 140px;
+          height: 54px;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .product_tab_list {
+      .review_tab {
+        .review_tab_top {
+          .review_tab_title {
+            @include text-style(18, $dark);
+          }
+          .review_tab_review {
+            @include text-style(18, $blue);
+          }
+        }
+
+        .review_tab_summary {
+          .review_tab_summary_right {
+            li {
+              .review_score,
+              .review_number {
+                @include text-style(13, $secondary);
+              }
+              .review_graph {
+                width: 180px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
