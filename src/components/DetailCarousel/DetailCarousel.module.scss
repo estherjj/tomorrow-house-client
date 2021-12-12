@@ -1,0 +1,71 @@
+@import "../../main.scss";
+
+.carousel {
+  height: auto;
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.slick_dots {
+  @include flex;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+
+  li {
+    position: relative;
+    display: inline-block;
+
+    button {
+      display: block;
+      width: 10px;
+      height: 10px;
+      padding: 10px;
+      cursor: pointer;
+      color: transparent;
+
+      &::before {
+        font-size: 2rem;
+        line-height: 20px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "•";
+        text-align: center;
+        opacity: 0.75;
+        color: #6d6968;
+      }
+    }
+  }
+}
+
+.slick_dots :global(li.slick-active) button:before {
+  opacity: 0.75;
+  color: #ffffff;
+}
+
+@include responsive(T) {
+  body {
+    .carousel {
+      height: 270px;
+      img {
+        height: 100%;
+      }
+    }
+  }
+}
+
+@include responsive(D) {
+  body {
+    .carousel {
+      height: 360px;
+      img {
+        height: 100%;
+      }
+    }
+  }
+}
